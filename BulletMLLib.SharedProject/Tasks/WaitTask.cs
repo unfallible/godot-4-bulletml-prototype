@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using BulletMLLib.SharedProject.Nodes;
 
 namespace BulletMLLib.SharedProject.Tasks
@@ -6,7 +6,7 @@ namespace BulletMLLib.SharedProject.Tasks
 	/// <summary>
 	/// This task pauses for a specified amount of time before resuming
 	/// </summary>
-	public class WaitTask : BulletMLTask
+	public partial class WaitTask : BulletMLTask
 	{
 		#region Members
 

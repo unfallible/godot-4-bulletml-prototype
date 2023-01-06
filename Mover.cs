@@ -6,7 +6,7 @@ namespace bulletmltemplate
   /// <summary>
   /// Mover - represents a bullet in game, moved by the MoveManager.
   /// </summary>
-  public class Mover : Bullet
+  public partial class Mover : Bullet
   {
     private bool used;
     private Node2D ParentNode { get; set; }
@@ -68,7 +68,7 @@ namespace bulletmltemplate
     {
       ParentNode = Main.Instance;
       var scene = ResourceLoader.Load<PackedScene>("Bullet.tscn");
-      BulletNode = scene.Instance() as Node2D;
+      BulletNode = scene.Instantiate() as Node2D;
       ParentNode.AddChild(BulletNode);
     
       Used = true;

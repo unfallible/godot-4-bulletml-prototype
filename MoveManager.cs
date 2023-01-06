@@ -8,7 +8,7 @@ namespace bulletmltemplate
   /// <summary>
   /// MoveManager - represents a bullet manager, i.e. something generating bullets such as an enemy character.
   /// </summary>
-  public class MoveManager : IBulletManager
+  public partial class MoveManager : IBulletManager
   {
     private const float timeSpeed = 1.0f;
     private const float scale = 1.0f;
@@ -44,7 +44,7 @@ namespace bulletmltemplate
       for (var i = 0; i < movers.Count; i++)
       {
         if (movers[i].Used) continue;
-        movers.Remove(movers[i]);
+        movers.RemoveAt(i);
         i--;
       }
 

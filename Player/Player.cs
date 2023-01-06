@@ -1,13 +1,14 @@
 using Godot;
 using System;
 
-public class Player : Sprite
+public partial class Player : Sprite2D
 {
   [Export]
   private float movementSpeed = 400f;
   
-  public override void _Process(float delta)
+  public override void _Process(double bigDelta)
   {
+    float delta = (float) bigDelta;
     base._Process(delta);
     
     var movement = new Vector2();
@@ -31,8 +32,8 @@ public class Player : Sprite
     Position += movement.Normalized() * movementSpeed * delta;
 
     var position = Position;
-    position.x = Mathf.Clamp(position.x, 0f, GetViewport().Size.x);
-    position.y = Mathf.Clamp(position.y, 0f, GetViewport().Size.y);
+    position.x = Mathf.Clamp(position.x, 0f, GetViewportRect().Size.x);
+    position.y = Mathf.Clamp(position.y, 0f, GetViewportRect().Size.y);
     Position = position;
   }
 

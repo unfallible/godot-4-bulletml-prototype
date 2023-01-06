@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using BulletMLLib.SharedProject.Nodes;
 using Godot;
 
@@ -7,7 +7,7 @@ namespace BulletMLLib.SharedProject.Tasks
 	/// <summary>
 	/// This task adds acceleration to a bullet.
 	/// </summary>
-	public class AccelTask : BulletMLTask
+	public partial class AccelTask : BulletMLTask
 	{
 		#region Members
 

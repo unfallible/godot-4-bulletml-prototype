@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using BulletMLLib.SharedProject.Nodes;
 
 namespace BulletMLLib.SharedProject.Tasks
@@ -6,7 +6,7 @@ namespace BulletMLLib.SharedProject.Tasks
 	/// <summary>
 	/// This task changes the speed a little bit every frame.
 	/// </summary>
-	public class ChangeSpeedTask : BulletMLTask
+	public partial class ChangeSpeedTask : BulletMLTask
 	{
 		#region Members
 
@@ -64,7 +64,7 @@ namespace BulletMLLib.SharedProject.Tasks
 			ChangeType = Node.GetChild(ENodeName.speed).NodeType;
 		}
 
-		private float GetSpeed(Bullet bullet)
+		private float GetVelocity(Bullet bullet)
 		{
 			switch (ChangeType)
 			{
@@ -93,7 +93,7 @@ namespace BulletMLLib.SharedProject.Tasks
 		/// <param name="bullet">The bullet to update this task against.</param>
 		public override ERunStatus Run(Bullet bullet)
 		{
-			bullet.Speed += GetSpeed(bullet);
+			bullet.Speed += GetVelocity(bullet);
 
 			RunDelta += 1.0f * bullet.TimeSpeed;
 			if (Duration <= RunDelta)

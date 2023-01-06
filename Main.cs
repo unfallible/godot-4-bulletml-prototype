@@ -4,7 +4,7 @@ using Godot;
 
 namespace bulletmltemplate
 {
-	public class Main : Node2D
+	public partial class Main : Node2D
 	{
 		[Export] private PackedScene playerScene;
 		
@@ -19,7 +19,7 @@ namespace bulletmltemplate
 	
 		private int currentPattern;
 		private Mover topLevelBullet;
-		private Sprite playerInstance;	// TODO: PlayerManager
+		private Sprite2D playerInstance;	// TODO: PlayerManager
 
 		public Main()
 		{
@@ -49,15 +49,16 @@ namespace bulletmltemplate
 			AddBullet();
 			
 			// Add a dummy player sprite
-      var scene = ResourceLoader.Load<PackedScene>(playerScene.ResourcePath);
-      if (!(scene.Instance() is Sprite player)) return;
-      playerInstance = player;
-      player.Position = new Vector2(GetViewportRect().Size.x / 2f, GetViewportRect().Size.y - 100f);
-      AddChild(player);
+	  var scene = ResourceLoader.Load<PackedScene>(playerScene.ResourcePath);
+	  if (!(scene.Instantiate() is Sprite2D player)) return;
+	  playerInstance = player;
+	  player.Position = new Vector2(GetViewportRect().Size.x / 2f, GetViewportRect().Size.y - 100f);
+	  AddChild(player);
 		}
 
-		public override void _Process(float delta)
+		public override void _Process(double bigDelta)
 		{
+			float delta = (float) bigDelta;
 			base._Process(delta);
 
 			if (Input.IsActionJustPressed("ui_select"))
@@ -85,7 +86,7 @@ namespace bulletmltemplate
 			// clear out all the bullets
 			foreach (var child in GetChildren())
 			{
-				if (child is Sprite) continue;	// HACK: the player
+				if (child is Sprite2D) continue;	// HACK: the player
 				
 				// TODO: object pooling
 				(child as Node2D)?.QueueFree();

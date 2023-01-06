@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using BulletMLLib.SharedProject.Nodes;
 
@@ -7,7 +7,7 @@ namespace BulletMLLib.SharedProject.Tasks
 	/// <summary>
 	/// This task changes the direction a little bit every frame
 	/// </summary>
-	public class ChangeDirectionTask : BulletMLTask
+	public partial class ChangeDirectionTask : BulletMLTask
 	{
 		#region Members
 

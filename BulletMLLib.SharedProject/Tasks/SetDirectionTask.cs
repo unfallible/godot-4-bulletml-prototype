@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using BulletMLLib.SharedProject.Nodes;
 
 namespace BulletMLLib.SharedProject.Tasks
@@ -6,7 +6,7 @@ namespace BulletMLLib.SharedProject.Tasks
 	/// <summary>
 	/// This task sets the direction of a bullet
 	/// </summary>
-	public class SetDirectionTask : BulletMLTask
+	public partial class SetDirectionTask : BulletMLTask
 	{
 		#region Methods
 
